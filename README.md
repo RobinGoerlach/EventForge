@@ -23,22 +23,86 @@ Benutzerfreundliche und intuitive Event-Verwaltung für Entwickler und Anwender 
 
 ## Installation
 
-1. Klone das Repository:
+### 1. Projekt einrichten
+1. **Erstelle ein neues React-Projekt**:
    ```bash
-   git clone <repository-url>
+   npx create-react-app eventforge --template cra-template-pwa
+   cd eventforge
+   ```
+2. **Entferne unnötige Dateien**: Lösche ggf. Dateien wie `App.css` und passe die Struktur an.
+
+### 2. TailwindCSS installieren und einrichten
+1. **Installiere TailwindCSS und PostCSS**:
+   ```bash
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init
+   ```
+2. **Konfiguriere `tailwind.config.js`**:
+   ```javascript
+   module.exports = {
+     content: ["./src/**/*.{js,jsx,ts,tsx}"],
+     theme: {
+       extend: {},
+     },
+     plugins: [],
+   };
+   ```
+3. **Erstelle die `tailwind.css` in `src/`**:
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
+4. **Importiere Tailwind in deine App**:
+   Öffne `src/index.css` und füge Folgendes hinzu:
+   ```css
+   @import './tailwind.css';
    ```
 
-2. Installiere die Abhängigkeiten:
+### 3. DaisyUI hinzufügen
+1. **Installiere DaisyUI**:
    ```bash
-   npm install
+   npm install daisyui
+   ```
+2. **Aktiviere DaisyUI in der Tailwind-Konfiguration**:
+   ```javascript
+   module.exports = {
+     content: ["./src/**/*.{js,jsx,ts,tsx}"],
+     theme: {
+       extend: {},
+     },
+     plugins: [require('daisyui')],
+   };
+   ```
+3. **Optional: DaisyUI-Themen anpassen**:
+   ```javascript
+   daisyui: {
+     themes: ["light", "dark", "cupcake"],
+   },
    ```
 
-3. Starte die Entwicklungsumgebung:
+### 4. Font Awesome Icons einbinden
+1. **Installiere Font Awesome**:
+   ```bash
+   npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+   ```
+2. **Nutze Icons in deiner App**:
+   ```javascript
+   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+   import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+
+   function IconExample() {
+     return <FontAwesomeIcon icon={faCalendarAlt} className="text-blue-500" />;
+   }
+   ```
+
+## Starten und Testen
+1. **Start des Projekts**:
    ```bash
    npm start
    ```
+2. Überprüfe, ob TailwindCSS, DaisyUI-Komponenten und Font Awesome Icons korrekt geladen werden.
 
-4. Starte die API gemäß den Anweisungen im zugehörigen API-Repository.
 
 ## Lizenz
 
