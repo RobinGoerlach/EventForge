@@ -24,14 +24,16 @@ Benutzerfreundliche und intuitive Event-Verwaltung für Entwickler und Anwender 
 ## Installation
 
 ### 1. Projekt einrichten
+
 1. **Erstelle ein neues React-Projekt**:
    ```bash
-   npx create-react-app eventforge --template cra-template-pwa
+   npm create vite@latest eventforge
    cd eventforge
    ```
 2. **Entferne unnötige Dateien**: Lösche ggf. Dateien wie `App.css` und passe die Struktur an.
 
 ### 2. TailwindCSS installieren und einrichten
+
 1. **Installiere TailwindCSS und PostCSS**:
    ```bash
    npm install -D tailwindcss postcss autoprefixer
@@ -39,27 +41,29 @@ Benutzerfreundliche und intuitive Event-Verwaltung für Entwickler und Anwender 
    ```
 2. **Konfiguriere `tailwind.config.js`**:
    ```javascript
+   import daisyui from "daisyui";
    module.exports = {
      content: ["./src/**/*.{js,jsx,ts,tsx}"],
      theme: {
        extend: {},
      },
-     plugins: [],
+     plugins: [daisyui],
    };
    ```
 3. **Erstelle die `tailwind.css` in `src/`**:
    ```css
    @tailwind base;
-   @tailwind components;
+   @tailwind compnents;
    @tailwind utilities;
    ```
 4. **Importiere Tailwind in deine App**:
    Öffne `src/index.css` und füge Folgendes hinzu:
    ```css
-   @import './tailwind.css';
+   @import "./tailwind.css";
    ```
 
 ### 3. DaisyUI hinzufügen
+
 1. **Installiere DaisyUI**:
    ```bash
    npm install daisyui
@@ -71,7 +75,7 @@ Benutzerfreundliche und intuitive Event-Verwaltung für Entwickler und Anwender 
      theme: {
        extend: {},
      },
-     plugins: [require('daisyui')],
+     plugins: [require("daisyui")],
    };
    ```
 3. **Optional: DaisyUI-Themen anpassen**:
@@ -82,14 +86,16 @@ Benutzerfreundliche und intuitive Event-Verwaltung für Entwickler und Anwender 
    ```
 
 ### 4. Font Awesome Icons einbinden
+
 1. **Installiere Font Awesome**:
    ```bash
    npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
    ```
 2. **Nutze Icons in deiner App**:
+
    ```javascript
-   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-   import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+   import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
    function IconExample() {
      return <FontAwesomeIcon icon={faCalendarAlt} className="text-blue-500" />;
@@ -97,12 +103,12 @@ Benutzerfreundliche und intuitive Event-Verwaltung für Entwickler und Anwender 
    ```
 
 ## Starten und Testen
+
 1. **Start des Projekts**:
    ```bash
-   npm start
+   npm run dev
    ```
 2. Überprüfe, ob TailwindCSS, DaisyUI-Komponenten und Font Awesome Icons korrekt geladen werden.
-
 
 ## Lizenz
 
@@ -110,4 +116,15 @@ Dieses Projekt ist unter der MIT-Lizenz veröffentlicht. Weitere Informationen f
 
 ---
 
-*Freue dich darauf, mit EventForge deine eigenen Events zu schmieden!*
+_Freue dich darauf, mit EventForge deine eigenen Events zu schmieden!_
+
+-- 8< ---
+
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
